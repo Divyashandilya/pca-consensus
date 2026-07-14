@@ -745,5 +745,164 @@
   <strong>Confidential — For Internal Circulation Only</strong> &nbsp;|&nbsp; Neovation Medical Communications &nbsp;|&nbsp; Expert Consensus Initiative
 </footer>
 
+<!-- ========== REGISTER INTEREST FORM ========== -->
+<style>
+  .cta-section {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    padding: 36px 32px;
+    background: var(--white);
+    border-radius: 16px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 20px rgba(0,120,180,0.08);
+    border-top: 4px solid var(--teal);
+  }
+  .cta-section h2 {
+    margin: 0 0 8px 0;
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 800;
+  }
+  .cta-section > p {
+    margin: 0 0 24px 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .cta-btn {
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .cta-btn:hover {
+    background: #008C89;
+    transform: translateY(-2px);
+  }
+  .cta-form {
+    display: none;
+    margin-top: 24px;
+    text-align: left;
+  }
+  .cta-form label {
+    display: block;
+    margin: 14px 0 5px 0;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .cta-form input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--light);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .cta-form input:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0,163,160,0.15);
+  }
+  .submit-btn {
+    margin-top: 24px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .submit-btn:hover { background: #006699; }
+  .submit-btn:disabled { background: #999; cursor: not-allowed; }
+  .success-msg {
+    display: none;
+    margin-top: 24px;
+    padding: 20px;
+    background: #E0F5F4;
+    border-radius: 12px;
+    color: #0D6B69;
+    font-size: 16px;
+    font-weight: 600;
+  }
+</style>
+
+<div class="cta-section">
+  <h2>Interested in Participating?</h2>
+  <p>Register your interest and we'll keep you updated on this consensus initiative.</p>
+
+  <button class="cta-btn" id="ctaBtn" onclick="document.getElementById('regForm').style.display='block'; this.style.display='none';">
+    Register Your Interest
+  </button>
+
+  <div class="cta-form" id="regForm">
+    <label for="regName">Name</label>
+    <input type="text" id="regName" placeholder="Your full name">
+
+    <label for="regEmail">Email</label>
+    <input type="email" id="regEmail" placeholder="you@example.com">
+
+    <label for="regPhone">Phone</label>
+    <input type="tel" id="regPhone" placeholder="+91 98765 43210">
+
+    <button class="submit-btn" id="submitBtn" onclick="submitForm()">Submit</button>
+  </div>
+
+  <div class="success-msg" id="successMsg">
+    ✅ Thank you! Your interest has been registered successfully.
+  </div>
+</div>
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxIkGJvpqAqTeYuZLKyJgSxjQuqoe0_vXtogHjrElfuPuFUrO161OwFRqsALXpUHkFF_g/exec";
+
+  function submitForm() {
+    const name = document.getElementById("regName").value.trim();
+    const email = document.getElementById("regEmail").value.trim();
+    const phone = document.getElementById("regPhone").value.trim();
+
+    if (!name || !email || !phone) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    btn.textContent = "Submitting...";
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name, email: email, phone: phone })
+    })
+    .then(() => {
+      document.getElementById("regForm").style.display = "none";
+      document.getElementById("successMsg").style.display = "block";
+    })
+    .catch(() => {
+      alert("Something went wrong. Please try again.");
+      btn.disabled = false;
+      btn.textContent = "Submit";
+    });
+  }
+</script>
+<!-- ========== END REGISTER INTEREST FORM ========== -->
+
 </body>
 </html>

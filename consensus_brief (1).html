@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Indian Expert Consensus — Prostate Cancer Management</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0D2B45;
+    --blue:    #0078B4;
+    --mid:     #4B78A5;
+    --light:   #D2E1F0;
+    --lighter: #EBF4FC;
+    --teal:    #00A3A0;
+    --gold:    #E8A020;
+    --white:   #FFFFFF;
+    --text:    #1A2E40;
+    --muted:   #5A7080;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--lighter);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 0.85;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--lighter);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 32px 88px;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #A8D4F0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    max-width: 580px;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: #A8D4F0;
+    font-weight: 400;
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 30px;
+  }
+
+  .pill .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .sec-label .bar {
+    width: 4px;
+    height: 24px;
+    background: var(--blue);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .sec-label h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  /* ── BACKGROUND CARD ── */
+  .bg-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    border-left: 5px solid var(--blue);
+    box-shadow: 0 2px 20px rgba(0,120,180,0.08);
+  }
+
+  .bg-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2A3D50;
+  }
+
+  .bg-card strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ── STAT STRIP ── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--blue);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-card:nth-child(2) { border-top-color: var(--teal); }
+  .stat-card:nth-child(3) { border-top-color: var(--gold); }
+
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  }
+
+  .stat-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* ── THREE CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .icon-blue  { background: #E3F0FA; }
+  .icon-teal  { background: #E0F5F4; }
+  .icon-gold  { background: #FDF3E0; }
+
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card ul li {
+    font-size: 13px;
+    color: #3A5068;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .card ul li::before {
+    content: '▸';
+    color: var(--blue);
+    font-size: 11px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .card:nth-child(2) ul li::before { color: var(--teal); }
+  .card:nth-child(3) ul li::before { color: var(--gold); }
+
+  /* ── DELPHI SECTION ── */
+  .delphi-wrap {
+    margin-bottom: 48px;
+  }
+
+  .delphi-steps {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+
+  .delphi-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(16.6% + 16px);
+    right: calc(16.6% + 16px);
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold));
+    z-index: 0;
+    border-radius: 2px;
+  }
+
+  .delphi-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    flex-shrink: 0;
+  }
+
+  .step-circle .phase-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 1px;
+  }
+
+  .step-circle .phase-num {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .circle-1 { background: var(--blue); color: white; }
+  .circle-2 { background: var(--teal); color: white; }
+  .circle-3 { background: var(--gold); color: white; }
+
+  .step-content h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .step-badge {
+    display: inline-block;
+    background: var(--lighter);
+    border: 1px solid var(--light);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* ── PANEL GRID ── */
+  .panel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+
+  .panel-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+  }
+
+  .panel-card .panel-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .panel-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+
+  .panel-card p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .panel-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 48px;
+    margin-top: -32px;
+  }
+
+  /* ── TWO-COL IMPACT ── */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .impact-left {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 32px 28px;
+  }
+
+  .impact-left h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+
+  .impact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .impact-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: #A8D4F0;
+    line-height: 1.5;
+  }
+
+  .impact-list li .check {
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .impact-right {
+    background: var(--blue);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+
+  .impact-right h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .evidence-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .evidence-list li {
+    font-size: 12.5px;
+    color: var(--white);
+    line-height: 1.4;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    border-left: 3px solid rgba(255,255,255,0.3);
+  }
+
+  .evidence-list li strong {
+    display: block;
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    text-align: center;
+    padding: 28px 32px;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+  }
+
+  .footer strong { color: rgba(255,255,255,0.7); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .stat-strip { grid-template-columns: 1fr; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .delphi-steps { flex-direction: column; gap: 24px; }
+    .delphi-steps::before { display: none; }
+    .panel-grid { grid-template-columns: repeat(2, 1fr); }
+    .impact-grid { grid-template-columns: 1fr; }
+    .hero-inner { padding: 40px 20px 70px; }
+    .main { padding: 32px 20px 60px; }
+  }
+
+  @media (max-width: 480px) {
+    .panel-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">National Delphi Initiative · India</div>
+    <h1>Indian Expert Consensus on the<br><span>Management of Prostate Cancer</span></h1>
+    <p class="hero-sub">
+      From Early Detection to Advanced Disease — Optimising Treatment Sequencing
+      and the Role of Novel Therapies in the Indian Context
+    </p>
+    <div class="hero-pills">
+      <span class="pill"><span class="dot"></span>Pan-India · Multi-centre</span>
+      <span class="pill"><span class="dot" style="background:#00A3A0"></span>Modified Delphi Methodology</span>
+      <span class="pill"><span class="dot" style="background:#fff"></span>Target: High-Impact Journal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN ── -->
+<main class="main">
+
+  <!-- STATS -->
+  <div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-num">70<span style="font-size:22px;color:var(--blue)">%</span></div>
+      <div class="stat-label">Indian patients present at advanced or metastatic stage</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">60<span style="font-size:22px;color:var(--teal)">%</span></div>
+      <div class="stat-label">Rise in prostate cancer incidence in India over two decades</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--gold)">0</div>
+      <div class="stat-label">Structured India-specific prostate cancer consensus currently exists</div>
+    </div>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="sec-label">
+    <div class="bar"></div>
+    <h2>Background & Unmet Need</h2>
+  </div>
+  <div class="bg-card">
+    <p>
+      Prostate cancer is the second most common cancer in Indian men, with incidence rising rapidly over the past two decades. Unlike Western populations, <strong>over 70% of Indian patients present at locally advanced or metastatic stage</strong> — driven by limited screening infrastructure, delayed healthcare-seeking, and access barriers. This late-stage presentation makes optimal treatment sequencing across the full disease continuum — from early referral and upstream disease management through to advanced metastatic disease — a clinical and public health imperative. The treatment landscape has evolved rapidly with novel hormonal agents, precision biomarker-driven therapies, and radioligand therapy (¹⁷⁷Lu-PSMA-617) transforming outcomes. <strong>No structured, India-specific expert consensus currently exists</strong> to guide clinicians on evidence-based pathways tailored to Indian clinical realities. This initiative addresses that critical gap.
+    </p>
+  </div>
+
+  <!-- THREE CARDS -->
+  <div class="sec-label">
+    <div class="bar"></div>
+    <h2>Objectives & Scope</h2>
+  </div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon icon-blue">🎯</div>
+      <h3>Primary Objective</h3>
+      <ul>
+        <li>First India-specific prostate cancer consensus — upstream to advanced disease</li>
+        <li>Standardise treatment pathways from early-stage referral to late-line mCRPC</li>
+        <li>Define where novel therapies including RLT fit within Indian practice</li>
+        <li>Encourage urologist, surgeon &amp; oncologist participation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon icon-teal">🔬</div>
+      <h3>Scope of the Consensus</h3>
+      <ul>
+        <li>Upstream: PSA screening, early detection, referral pathways</li>
+        <li>mHSPC: treatment intensification — doublet and triplet therapy</li>
+        <li>mCRPC: sequencing — ARPIs, chemotherapy, PARP inhibitors, RLT</li>
+        <li>Biomarker-driven therapy: PSMA, BRCA1/2, HRR testing</li>
+        <li>India-specific: cost, access, BRIT/BARC supply, hub-and-spoke</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon icon-gold">📊</div>
+      <h3>What Makes This Different</h3>
+      <ul>
+        <li>Broader than existing guidelines — addresses Indian upstream gaps</li>
+        <li>Clinically practical — usable at bedside, not just academic</li>
+        <li>Addresses cost, Ayushman Bharat &amp; generic availability</li>
+        <li>Incorporates PSMAfore, PSMAddition &amp; ASCO 2026.1</li>
+        <li>Designed for high-impact journal publication</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DELPHI -->
+  <div class="sec-label">
+    <div class="bar"></div>
+    <h2>Methodology — Three-Phase Modified Delphi Process</h2>
+  </div>
+  <div class="delphi-wrap">
+    <div class="delphi-steps">
+      <div class="delphi-step">
+        <div class="step-circle circle-1">
+          <span class="phase-label">Phase</span>
+          <span class="phase-num">1</span>
+        </div>
+        <div class="step-content">
+          <h4>Broad Virtual Voting</h4>
+          <div class="step-badge">~60 Experts</div>
+          <p class="step-desc">Initial consensus across all domains; diverse specialties including urologists and surgeons; identify agreement vs non-consensus items</p>
+        </div>
+      </div>
+      <div class="delphi-step">
+        <div class="step-circle circle-2">
+          <span class="phase-label">Phase</span>
+          <span class="phase-num">2</span>
+        </div>
+        <div class="step-content">
+          <h4>Refined Virtual Voting</h4>
+          <div class="step-badge" style="color:var(--teal)">20–30 Experts</div>
+          <p class="step-desc">Focused voting on non-consensus items; narrowed expert panel with deeper disease and RLT expertise</p>
+        </div>
+      </div>
+      <div class="delphi-step">
+        <div class="step-circle circle-3">
+          <span class="phase-label">Final</span>
+          <span class="phase-num">★</span>
+        </div>
+        <div class="step-content">
+          <h4>In-Person Meeting</h4>
+          <div class="step-badge" style="color:var(--gold)">10–15 Experts</div>
+          <p class="step-desc">Statement ratification, clinical nuance discussion, final publication sign-off and author agreement</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERT PANEL -->
+  <div class="sec-label">
+    <div class="bar"></div>
+    <h2>Expert Panel — Multidisciplinary &amp; Geographically Representative</h2>
+  </div>
+  <div class="panel-grid">
+    <div class="panel-card">
+      <span class="panel-icon">🩺</span>
+      <h4>Medical Oncology</h4>
+      <p>Systemic therapy &amp; treatment sequencing</p>
+    </div>
+    <div class="panel-card">
+      <span class="panel-icon">☢️</span>
+      <h4>Nuclear Medicine</h4>
+      <p>PSMA imaging &amp; RLT administration</p>
+    </div>
+    <div class="panel-card">
+      <span class="panel-icon">🔪</span>
+      <h4>Urology / Uro-oncology</h4>
+      <p>Early diagnosis, surgery &amp; upstream management</p>
+    </div>
+    <div class="panel-card">
+      <span class="panel-icon">⚡</span>
+      <h4>Radiation Oncology</h4>
+      <p>Radiotherapy, SBRT &amp; MDT perspectives</p>
+    </div>
+  </div>
+  <p class="panel-note">Representatives from North, South, East, West &amp; Central India — government institutions, academic medical centres, and private hospitals</p>
+
+  <!-- IMPACT + EVIDENCE -->
+  <div class="sec-label">
+    <div class="bar"></div>
+    <h2>Expected Impact &amp; Evidence Base</h2>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-left">
+      <h3>Expected Clinical &amp; Policy Impact</h3>
+      <ul class="impact-list">
+        <li><span class="check">✓</span> Published consensus in a high-impact peer-reviewed journal (Indian Journal of Urology and others)</li>
+        <li><span class="check">✓</span> Practical, bedside-usable treatment pathways across the full prostate cancer continuum</li>
+        <li><span class="check">✓</span> Standardised referral criteria from urology/community to tertiary oncology centres</li>
+        <li><span class="check">✓</span> National hub-and-spoke framework for equitable access to novel therapies</li>
+        <li><span class="check">✓</span> Evidence base for insurance coverage and Ayushman Bharat reimbursement advocacy</li>
+      </ul>
+    </div>
+    <div class="impact-right">
+      <h3>Key Evidence Informing the Consensus</h3>
+      <ul class="evidence-list">
+        <li><strong>VISION Trial</strong>OS benefit in mCRPC — HR 0.62</li>
+        <li><strong>PSMAfore Trial</strong>RLT post-ARPI — rPFS HR 0.43</li>
+        <li><strong>TheraP Trial</strong>RLT vs cabazitaxel — PSA50: 66% vs 37%</li>
+        <li><strong>PSMAddition</strong>RLT in mHSPC — rPFS HR 0.69</li>
+        <li><strong>ARASENS</strong>Triplet therapy in mHSPC — OS HR 0.68</li>
+        <li><strong>ASCO Living Guideline 2026.1 &amp; EAU 2026</strong>Current global standards</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <strong>Confidential — For Internal Circulation Only</strong> &nbsp;|&nbsp; Neovation Medical Communications &nbsp;|&nbsp; Expert Consensus Initiative
+</footer>
+
+</body>
+</html>
